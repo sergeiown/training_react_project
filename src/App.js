@@ -12,6 +12,8 @@ function App() {
 	return (
 		<div className="App">
 			<PostList posts={posts} title={"Список постов 1"}></PostList>
+		
+		
 		</div>
 	);
 }
