@@ -7,9 +7,9 @@ import MyInput from './components/UI/input/MyInput';
 
 function App() {
     const [posts, setPosts] = useState([
-        { id: 1, title: 'Javascript ES7', body: 'Description3' },
-        { id: 2, title: 'Javascript ES6', body: 'Description2' },
-        { id: 3, title: 'Javascript ES5', body: 'Description1' },
+        { id: Date.now(), title: 'Javascript ES7', body: 'Description3' },
+        { id: Date.now() + 1, title: 'Javascript ES6', body: 'Description2' },
+        { id: Date.now() + 2, title: 'Javascript ES5', body: 'Description1' },
     ]);
 
     const [selectedSort, setSelectedSort] = useState('');
@@ -19,7 +19,7 @@ function App() {
         console.log('Sorting has worked');
 
         if (selectedSort) {
-            return [...posts].sort((a, b) => a[selectedSort].localeCompare(b[selectedSort]));
+            return [...posts].sort((a, b) => a[selectedSort].toString().localeCompare(b[selectedSort].toString()));
         }
         return posts;
     }, [selectedSort, posts]);
@@ -56,6 +56,7 @@ function App() {
                     options={[
                         { value: 'title', name: 'По названию' },
                         { value: 'body', name: 'По описанию' },
+                        { value: 'id', name: 'От старых к новым' },
                     ]}
                 />
             </div>
