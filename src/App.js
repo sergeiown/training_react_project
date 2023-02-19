@@ -16,13 +16,17 @@ function App() {
     const [searchQuery, setSearchQuery] = useState('');
 
     const sortedPosts = useMemo(() => {
-        console.log('Sorting has worked');
+        // console.log('Sorting has worked');
 
         if (selectedSort) {
             return [...posts].sort((a, b) => a[selectedSort].toString().localeCompare(b[selectedSort].toString()));
         }
         return posts;
     }, [selectedSort, posts]);
+
+    const sortedAndSearchedPosts = useMemo(() => {
+        return sortedPosts.filter((post) => post.title.toLowerCase().includes(searchQuery.toLowerCase()));
+    }, [searchQuery, sortedPosts]);
 
     const createPost = (newPost) => {
         setPosts([...posts, newPost]);
@@ -62,7 +66,7 @@ function App() {
             </div>
 
             {posts.length ? (
-                <PostList remove={removePost} posts={sortedPosts} title={'Посты про JS'} />
+                <PostList remove={removePost} posts={sortedAndSearchedPosts} title={'Посты про JS'} />
             ) : (
                 <h1 style={{ textAlign: 'center' }}>Посты не найдены</h1>
             )}
