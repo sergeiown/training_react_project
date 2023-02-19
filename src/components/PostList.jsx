@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from './Post.jsx';
+import PostItem from './PostItem.jsx';
 
 const PostList = ({ posts, title, remove }) => {
     return (
@@ -7,7 +7,7 @@ const PostList = ({ posts, title, remove }) => {
             <h1 style={{ textAlign: 'center' }}>{title}</h1>
 
             {posts.map((post, index) => (
-                <Post remove={remove} number={index + 1} post={post} key={post.id} />
+                <PostItem remove={remove} number={index + 1} post={post} key={post.id} />
             ))}
         </div>
     );
