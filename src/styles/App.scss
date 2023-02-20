@@ -22,4 +22,22 @@
     margin: 15px 0 0 0;
     justify-content: space-between;
     align-items: center;
+
+    &-enter {
+        transform: translateX(-350px);
+    }
+
+    &-enter-active {
+        transform: translateX(0px);
+        transition: all 500ms ease-in;
+    }
+
+    &-exit {
+        opacity: 1;
+    }
+
+    &-exit-active {
+        transform: translateX(-350px);
+        transition: all 500ms ease-in;
+    }
 }
