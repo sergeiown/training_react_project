@@ -19,6 +19,7 @@
 
 .App {
   width: 800px;
+  position: relative;
 }
 
 .post {
