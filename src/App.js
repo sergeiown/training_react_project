@@ -28,6 +28,11 @@ function App() {
     const createPost = (newPost) => {
         setPosts([...posts, newPost]);
         setModal(false);
+
+        //scroll to the post with maximum id
+        const maxId = Math.max(...posts.map((p) => p.id));
+        const element = document.getElementById(maxId);
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
     async function fetchPosts() {
@@ -47,7 +52,7 @@ function App() {
     return (
         <div className="App">
             <MyButton style={{ marginTop: 30 }} onClick={() => setModal(true)}>
-                Создать пост
+                Create Post
             </MyButton>
 
             <MyModal visible={modal} setVisible={setModal}>
@@ -61,7 +66,7 @@ function App() {
             {isPostsLoading ? (
                 <Loader />
             ) : (
-                <PostList remove={removePost} posts={sortedAndSearchedPosts} title={'Посты про JS:'} />
+                <PostList remove={removePost} posts={sortedAndSearchedPosts} title={'List of posts:'} />
             )}
         </div>
     );

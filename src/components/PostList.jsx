@@ -4,7 +4,7 @@ import PostItem from './PostItem.jsx';
 
 const PostList = ({ posts, title, remove }) => {
     if (!posts.length) {
-        return <h1 style={{ textAlign: 'center' }}>Посты не найдены!</h1>;
+        return <h1 style={{ textAlign: 'center' }}>No posts found!</h1>;
     }
 
     return (
@@ -14,7 +14,7 @@ const PostList = ({ posts, title, remove }) => {
             <TransitionGroup>
                 {posts.map((post, index) => (
                     <CSSTransition key={post.id} timeout={500} classNames="post">
-                        <PostItem remove={remove} number={index + 1} post={post} />
+                        <PostItem id={post.id} remove={remove} number={index + 1} post={post} />
                     </CSSTransition>
                 ))}
             </TransitionGroup>

@@ -44,3 +44,12 @@
   transform: translateX(-350px);
   transition: all 500ms ease-in;
 }
+.post:nth-last-of-type(1) {
+  margin-bottom: 25vh;
+}
+.post > * :not(button) {
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  word-wrap: break-word;
+  word-break: break-all;
+}
