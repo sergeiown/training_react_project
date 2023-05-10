@@ -11,9 +11,9 @@ import Loader from './components/UI/Loader/Loader';
 
 function App() {
     const [posts, setPosts] = useState([
-        /*   { id: Date.now(), title: 'Javascript ES7', body: 'Description3' },
+        { id: Date.now(), title: 'Javascript ES7', body: 'Description3' },
         { id: Date.now() + 1, title: 'Javascript ES6', body: 'Description2' },
-        { id: Date.now() + 2, title: 'Javascript ES5', body: 'Description1' }, */
+        { id: Date.now() + 2, title: 'Javascript ES5', body: 'Description1' },
     ]);
 
     const [filter, setFilter] = useState({ sort: '', query: '' });
